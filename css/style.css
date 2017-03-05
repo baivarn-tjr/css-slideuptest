@@ -1,0 +1,4 @@
+.show-list > li.hide{
+  display:none;
+  color:yellow;
+}

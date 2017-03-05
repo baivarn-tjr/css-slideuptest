@@ -1,8 +1,34 @@
 <!doctype html>
+<html>
 <head>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
+  <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-
+  <p>test</p>
+  <ul id="show-list" class="show-list"></ul>
+  <script type="text/javascript">
+  var showlist = $('#show-list');
+  var myTimer = setInterval(autoAdd, 2000);
+  var queue = [];
+  setStart();
+  function setStart(){
+    for(var i = 0;i<20;i++)
+      queue.push(i);
+    for(var i =0;i<20;i++){
+      showlist.prepend('<li class="show">'+queue[i]+' </li>');
+    }
+  }
+  outoftwenty = $('li:gt(20)');
+  outoftwenty.addClass("hide");
+  //setTimeout());
+  function autoAdd(){
+    queue.push('auto');
+    showlist.prepend('<li id="'+'a'+'">'+queue[(queue.length)-1]+' </li>');
+    var j = queue.shift();
+    outoftwenty = $('li:gt(20)');
+    outoftwenty.addClass("hide");
+  }
+  </script>
 </body>
+</html>
