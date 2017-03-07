@@ -9,6 +9,7 @@
   <ul id="show-list" class="show-list"></ul>
   <script type="text/javascript">
   var showlist = $('#show-list');
+  var newLi =  $('#show-list:first');
   var myTimer = setInterval(autoAdd, 2000);
   var queue = [];
   setStart();
@@ -24,10 +25,15 @@
   //setTimeout());
   function autoAdd(){
     queue.push('auto');
-    showlist.prepend('<li id="'+'a'+'">'+queue[(queue.length)-1]+' </li>');
+    showlist.prepend('<li>'+queue[(queue.length)-1]+' </li>');
     var j = queue.shift();
-    outoftwenty = $('li:gt(20)');
+    newLi =  $('#show-list >li:first');
+    setTimeout(function() {
+    newLi.addClass("show");
+ }, 100);
+    outoftwenty = $('li:gt(19)');
     outoftwenty.addClass("hide");
+    $('#show-list li.hide').remove()
   }
   </script>
 </body>
